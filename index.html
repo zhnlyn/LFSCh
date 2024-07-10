@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>React App</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
 
-<form>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter phone number (e.g. 123-456-7890)"><br><br>
 
-  <label for="phone">Phone Number:</label>
-  <input type="tel" id="phone" name="phone" placeholder="Enter phone number (e.g. 123-456-7890)"><br><br>
-
-  <input type="submit" value="Submit">
-</form>
-
-</body>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
 </html>
