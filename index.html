@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>React App</title>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/zhnlyn/LFSCh@master/main.tsx"></script>
-  </body>
+<body>
+
+<form id="myForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone" placeholder="Enter phone number (e.g. 123-456-7890)"><br><br>
+
+  <span id="error"></span><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  // Prevent default form submission
+  event.preventDefault();
+
+  // Get form values
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+
+  // Clear any previous error message
+  document.getElementById("error").innerHTML = "";
+
+  // Validation logic
+  var isValid = true;
+  if (name === "") {
+    isValid = false;
+    document.getElementById("error").innerHTML += "Name is required<br>";
+  }
+
+  if (!isValidPhone(phone)) {
+    isValid = false;
+    document.getElementById("error").innerHTML += "Invalid phone number format<br>";
+  }
+
+  // Submit form if validation passes
+  if (isValid) {
+    // Simulate form submission (you'd typically use AJAX or redirect here)
+    alert("Form submitted successfully! (Name: " + name + ", Phone: " + phone + ")");
+    // You can also submit the form using form.submit(); after validation
+  }
+});
+
+// Function to validate phone number format (basic example)
+function isValidPhone(phone) {
+  var regex = /^\d{3}-\d{3}-\d{4}$/; // This checks for XXX-XXX-XXXX format
+  return regex.test(phone);
+}
+</script>
+
+</body>
 </html>
